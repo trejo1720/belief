@@ -27,9 +27,10 @@ this assignment.  For each question supply graphical evidence, numerical summari
 
 ### Do people who believe in Love at First sight also tend to believe in Life on other planets?
 
- Do people who believe in love at first sight also tend to believe in extra terestrials. 
+ Do people who believe in love at first sight also tend to believe in extra terestrials?
  
 $H_o$There is no relation between people who believe in love at first sight and believeing in extra terestrials
+
 $h_a$ There is a relation between those people who believe in love at first sight and believing in extra terestrials.
 graphic display  
 
@@ -60,17 +61,59 @@ the p-value was 0.69 so we fail to reject $h_o$
 # Your second Question  
 
 ### Is there a difference between boys and girls with respect to belief in life on other planets?
-  
+
+$H_o$  There is not a difference between boys and girls with respect to belief in life on other planets.
+
+$H_a$ There is a difference between  boys and girls with respect to belief in life on other planets. 
 ```{r}
 barchartGC(~sex + extra_life,data=mydata)
 ```
 
+There is a pretty big difference between the sex and whether they believe in life on another planet it seems as if the males tend to believe more. 
+
+Numerical Summery
+```{r}
+table1 <- xtabs(~sex + extra_life, data=mydata)
+rowPerc(table1)
+colPerc(table1)
+```
+
+It appears that more women do not believe on life on another planet than men believe there is. 
+
+Inference
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+
+ the p-value was 0.27 so we reject $h_o$
  
 # Your last Question   
 
 ### Is there a difference between boys and girls with respect to belief in love at First sight?
 
+$H_o$ There is not a difference between boys and girls with respect to belief in love at first sight.
+
+$H_a$ There is a difference between boys and girls with respect to belief in love at first sight. 
 ```{r}
 barchartGC(~sex + love_first,data=mydata)
 ```
+This shows that there is not much of a difference between the sex in respect to belief of love at first sight. 
 
+Numerical Summary
+
+```{r}
+table1 <- xtabs(~sex + love_first, data=mydata)
+rowPerc(table1)
+colPerc(table1)
+```
+This table shows that the sexs have about the same opinion on love at first sight. 
+
+Inference 
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+the p value was 1 so it fails to reject the $H_o$
