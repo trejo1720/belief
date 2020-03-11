@@ -27,15 +27,50 @@ this assignment.  For each question supply graphical evidence, numerical summari
 
 ### Do people who believe in Love at First sight also tend to believe in Life on other planets?
 
-  
-  
-    
+ Do people who believe in love at first sight also tend to believe in extra terestrials. 
+ 
+$H_o$There is no relation between people who believe in love at first sight and believeing in extra terestrials
+$h_a$ There is a relation between those people who believe in love at first sight and believing in extra terestrials.
+graphic display  
+
+```{r}
+barchartGC(~love_first + extra_life,data=mydata, xlab='love @ first sight')
+```
+
+People who believe in love at first sight also tend to believe believe in extra terestrials.
+
+Numerical Summary
+```{r}
+table1 <- xtabs(~love_first + extra_life, data=mydata)
+rowPerc(table1)
+colPerc(table1)
+```
+
+It appears to be that people who believe in love at first sight is about the same as the ones who believe in extra terestrials.    
+
+Inference
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+
+
 # Your second Question  
 
 ### Is there a difference between boys and girls with respect to belief in life on other planets?
   
- 
+```{r}
+barchartGC(~sex + extra_life,data=mydata)
+```
+
  
 # Your last Question   
 
 ### Is there a difference between boys and girls with respect to belief in love at First sight?
+
+```{r}
+barchartGC(~sex + love_first,data=mydata)
+```
+
