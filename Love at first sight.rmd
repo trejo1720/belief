@@ -55,7 +55,7 @@ chisq.test(table1)
 chisqtestGC(table1)
 fisher.test(table1)
 ```
-
+the p-value was 0.69 so we fail to reject $h_o$
 
 # Your second Question  
 
